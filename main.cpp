@@ -54,6 +54,18 @@ int main() {
     lunchMenu->next->next->next->next->next->next->next->next->next = new FoodItem{"Sushi", 200.0, nullptr};
     lunchMenu->next->next->next->next->next->next->next->next->next->next = new FoodItem{"Chicken Sandwich", 110.0, nullptr};
 
+    FoodItem* dinnerMenu = new FoodItem{"Soup", 90.0, nullptr};
+    dinnerMenu->next = new FoodItem{"Steak", 180.0, nullptr};
+    dinnerMenu->next->next = new FoodItem{"Grilled Salmon", 160.0, nullptr};
+    dinnerMenu->next->next->next = new FoodItem{"Roast Chicken", 150.0, nullptr};
+    dinnerMenu->next->next->next->next = new FoodItem{"Pasta Alfredo", 130.0, nullptr};
+    dinnerMenu->next->next->next->next->next = new FoodItem{"Vegetarian Stir-Fry", 110.0, nullptr};
+    dinnerMenu->next->next->next->next->next->next = new FoodItem{"Shrimp Scampi", 140.0, nullptr};
+    dinnerMenu->next->next->next->next->next->next->next = new FoodItem{"Lobster Bisque", 200.0, nullptr};
+    dinnerMenu->next->next->next->next->next->next->next->next = new FoodItem{"Beef Stroganoff", 170.0, nullptr};
+    dinnerMenu->next->next->next->next->next->next->next->next->next = new FoodItem{"Vegetable Curry", 120.0, nullptr};
+    dinnerMenu->next->next->next->next->next->next->next->next->next->next = new FoodItem{"Chicken Alfredo", 140.0, nullptr};
+
     FoodItem* selectedItems = nullptr;
 
 
