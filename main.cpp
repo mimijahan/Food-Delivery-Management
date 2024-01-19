@@ -17,3 +17,11 @@ void displayMenu(FoodItem* menu, const char* category) {
     }
     cout << "------------------------\n";
 }
+
+FoodItem* selectItem(FoodItem* menu, int itemNumber) {
+    FoodItem* selectedItem = menu;
+    for (int i = 1; i < itemNumber && selectedItem != nullptr; i++) {
+        selectedItem = selectedItem->next;
+    }
+    return selectedItem;
+}
