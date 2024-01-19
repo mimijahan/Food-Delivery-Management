@@ -1,16 +1,19 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main()
-{
-    cout << "Hello world!" << endl;
-    cout << "Hello world!" << endl;
-    cout << "Hello world!" << endl;
-    cout << "Hello world!" << endl;
-    cout << "Hello world DIM" << endl;
-    cout << "Hello world DIM" << endl;
-    cout << "Hello world DIM" << endl;
-
-    return 0;
+struct FoodItem {
+    char name[50];
+    double price;
+    FoodItem* next;
+};
+void displayMenu(FoodItem* menu, const char* category) {
+    cout << "---- " << category << " Menu ----\n";
+    int itemNumber = 1;
+    while (menu != nullptr) {
+        cout << itemNumber << ". " << menu->name << " - ৳" << fixed << setprecision(2) << menu->price << "\n";
+        menu = menu->next;
+        itemNumber++;
+    }
+    cout << "------------------------\n";
 }
