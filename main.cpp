@@ -36,7 +36,13 @@ void addToOrder(FoodItem*& order, FoodItem* selectedItem) {
         temp->next = new FoodItem{*selectedItem};
     }
 }
-
+void clearOrder(FoodItem*& order) {
+    while (order != nullptr) {
+        FoodItem* temp = order;
+        order = order->next;
+        delete temp;
+    }
+}
 
 
 
