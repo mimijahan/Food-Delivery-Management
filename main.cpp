@@ -1,12 +1,16 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <iomanip>
 
 using namespace std;
+
 double total = 0.0;
+
 struct FoodItem {
     char name[50];
     double price;
     FoodItem* next;
 };
+
 void displayMenu(FoodItem* menu, const char* category) {
     cout << "---- " << category << " Menu ----\n";
     int itemNumber = 1;
@@ -25,6 +29,7 @@ FoodItem* selectItem(FoodItem* menu, int itemNumber) {
     }
     return selectedItem;
 }
+
 void addToOrder(FoodItem*& order, FoodItem* selectedItem) {
     if (order == nullptr) {
         order = new FoodItem{*selectedItem};
@@ -36,6 +41,7 @@ void addToOrder(FoodItem*& order, FoodItem* selectedItem) {
         temp->next = new FoodItem{*selectedItem};
     }
 }
+
 void clearOrder(FoodItem*& order) {
     while (order != nullptr) {
         FoodItem* temp = order;
@@ -43,32 +49,34 @@ void clearOrder(FoodItem*& order) {
         delete temp;
     }
 }
-void confirmOrder(){
+
+void confirmOrder() {
     int payment;
     cout << "Enter the amount :";
     cin >> payment;
-    if (payment >= total)
-    {
-        cout << "Payment successfull" << endl;
-    }
-    else
-    {
-        cout << "Payment unseccessfull " << endl;
-        cout << "Please add : " << total-payment << " TK" << endl;
+    if (payment >= total) {
+        cout << "Payment successful" << endl;
+    } else {
+        cout << "Payment unsuccessful " << endl;
+        cout << "Please add : " << total - payment << " TK" << endl;
     }
 }
 
-
+void displayOrder(FoodItem* order) {
+    cout << "---- Your Order ----\n";
+    while (order != nullptr) {
+        cout << order->name << " - ৳" << fixed << setprecision(2) << order->price << "\n";
+        order = order->next;
+    }
+    cout << "------------------------\n";
+}
 
 int main() {
-
     FoodItem* breakfastMenu = new FoodItem{"Eggs", 120.0, nullptr};
     breakfastMenu->next = new FoodItem{"Toast", 50.0, nullptr};
     breakfastMenu->next->next = new FoodItem{"Coffee", 25.0, nullptr};
     breakfastMenu->next->next->next = new FoodItem{"Pancakes", 80.0, nullptr};
     breakfastMenu->next->next->next->next = new FoodItem{"Omelette", 100.0, nullptr};
-
-
 
     FoodItem* lunchMenu = new FoodItem{"Soup", 90.0, nullptr};
     lunchMenu->next = new FoodItem{"Sandwich", 110.0, nullptr};
@@ -76,13 +84,12 @@ int main() {
     lunchMenu->next->next->next = new FoodItem{"Burger", 130.0, nullptr};
     lunchMenu->next->next->next->next = new FoodItem{"Pasta", 100.0, nullptr};
 
-
     FoodItem* dinnerMenu = new FoodItem{"Soup", 90.0, nullptr};
     dinnerMenu->next = new FoodItem{"Steak", 180.0, nullptr};
     dinnerMenu->next->next = new FoodItem{"Grilled Salmon", 160.0, nullptr};
     dinnerMenu->next->next->next = new FoodItem{"Roast Chicken", 150.0, nullptr};
     dinnerMenu->next->next->next->next = new FoodItem{"Pasta Alfredo", 130.0, nullptr};
-    dinnerMenu->next->next->next->next->next = new FoodItem{"Vegetarian Stir-Fry", 110.0, nullptr};\
+    dinnerMenu->next->next->next->next->next = new FoodItem{"Vegetarian Stir-Fry", 110.0, nullptr};
 
     FoodItem* foreignMenu = new FoodItem{"Sushi", 200.0, nullptr};
     foreignMenu->next = new FoodItem{"Pad Thai", 150.0, nullptr};
@@ -90,10 +97,9 @@ int main() {
     foreignMenu->next->next->next = new FoodItem{"Pasta Carbonara", 160.0, nullptr};
     foreignMenu->next->next->next->next = new FoodItem{"Chicken Satay", 130.0, nullptr};
 
-    FoodItem* selectedItems = nullptr;
+    FoodItem* order = nullptr;
 
-
-      int option;
+    int option;
     do {
         cout << "-------- Main Menu --------" << endl;
         cout << "1. Breakfast Menu" << endl;
@@ -172,9 +178,5 @@ int main() {
         }
     } while (option != 8);
 
-
-
-
-
-return 0;
+    return 0;
 }
