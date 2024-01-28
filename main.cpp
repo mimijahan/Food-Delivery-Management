@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+double total = 0.0;
 struct FoodItem {
     char name[50];
     double price;
