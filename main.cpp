@@ -25,6 +25,19 @@ FoodItem* selectItem(FoodItem* menu, int itemNumber) {
     }
     return selectedItem;
 }
+void addToOrder(FoodItem*& order, FoodItem* selectedItem) {
+    if (order == nullptr) {
+        order = new FoodItem{*selectedItem};
+    } else {
+        FoodItem* temp = order;
+        while (temp->next != nullptr) {
+            temp = temp->next;
+        }
+        temp->next = new FoodItem{*selectedItem};
+    }
+}
+
+
 
 
 int main() {
