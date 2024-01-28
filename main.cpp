@@ -43,6 +43,20 @@ void clearOrder(FoodItem*& order) {
         delete temp;
     }
 }
+void confirmOrder(){
+    int payment;
+    cout << "Enter the amount :";
+    cin >> payment;
+    if (payment >= total)
+    {
+        cout << "Payment successfull" << endl;
+    }
+    else
+    {
+        cout << "Payment unseccessfull " << endl;
+        cout << "Please add : " << total-payment << " TK" << endl;
+    }
+}
 
 
 
